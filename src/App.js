@@ -1,10 +1,10 @@
 import React from 'react';
 import { registerRootComponent } from "expo"
-import OnBoardingPage from './screen/OnBoardingPage';
+import StackNavigation from './navigation/StackNavigation';
 
 function App() {
   return (
-    <OnBoardingPage />
+   <StackNavigation/>
   );
 }
 

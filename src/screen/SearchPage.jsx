@@ -1,10 +1,10 @@
 import React from 'react'
 import { View, Text } from 'react-native'
 
-export default function Image() {
+export default function SearchPage() {
     return (
         <View>
-            <Text>Image</Text>
+            <Text>SearchPage</Text>
         </View>
     )
 }
