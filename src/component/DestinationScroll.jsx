@@ -1,8 +1,8 @@
 import React from 'react'
-import { View, Text, ScrollView } from 'react-native'
+import { View, Text, ScrollView, TouchableOpacity } from 'react-native'
 import { height, width } from '../constants/Constant'
 
-export default function DestinationScroll() {
+export default function DestinationScroll(props) {
     const data = [
         { "id": "1" },
         { "id": "2" },
@@ -20,8 +20,8 @@ export default function DestinationScroll() {
                 <ScrollView horizontal showsHorizontalScrollIndicator={false}>
                     {data.map((item, index) => (
                         <View key={index} style={{ height: "100%", width: width * 0.35, justifyContent: 'space-evenly', alignItems: 'center', marginLeft: width * 0.03, marginRight: (index % (data.length) - (data.length - 1) == 0) ? width * 0.03 : 0 }}>
-                            <View style={{ height: height * 0.25, backgroundColor: 'gray', width: width * 0.35, borderRadius: 10 }}>
-                            </View>
+                            <TouchableOpacity activeOpacity={0.8} onPress={()=>{props.navigation.navigate("PlaceDetails")}} style={{ height: height * 0.25, backgroundColor: '#e6e6e6', width: width * 0.35, borderRadius: 10 }}>
+                            </TouchableOpacity>
                             <Text style={{ fontSize: width * 0.035, fontWeight: 'bold' }}>Ski Villa</Text>
                         </View>
                     ))}

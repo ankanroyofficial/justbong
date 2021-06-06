@@ -26,7 +26,7 @@ export default function OnBoardingPage({ navigation }) {
             </View>
             <View style={{ flex: 0.8 }}>
                 <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                    <Text style={{ fontWeight: 'bold', fontSize: width * 0.05 }}>Digital Ticket</Text>
+                    <Text style={{ fontWeight: 'bold', fontSize: width * 0.055 }}>Digital Ticket</Text>
                 </View>
                 <View style={{ flex: 2, marginHorizontal: width * 0.05 }}>
                     <Text style={{ fontSize: width * 0.04, textAlign: "center" }}>Easy solution to buy tickets for your traval, Business trips,transportation,{"\n"}lodging and culinary</Text>
@@ -35,14 +35,13 @@ export default function OnBoardingPage({ navigation }) {
             <View style={{ flex: 1, alignItems: 'center', }}>
                 <TouchableOpacity activeOpacity={0.9} onPress={() => { navigation.navigate("HomePage") }}>
                     <LinearGradient
-                        // Button Linear Gradient
-                        colors={['#46aeff', '#5884ff']}
+                        colors={['#44b1fa', '#5c7dfb']}
                         start={{ x: 0, y: 0 }}
                         end={{ x: 1, y: 1 }}
                         style={{
-                            width: width * 0.65, height: height * 0.07, borderRadius: 15, justifyContent: "center", alignItems: 'center'
+                            width: width * 0.65, height: height * 0.07, borderRadius: 12, justifyContent: "center", alignItems: 'center'
                         }}>
-                        <Text style={{ backgroundColor: 'transparent', fontSize: 15, color: '#fff', }}>Start</Text>
+                        <Text style={{  fontSize: width*0.047, color: '#fff',fontWeight:"bold",letterSpacing:1 }}>Start</Text>
                     </LinearGradient>
                 </TouchableOpacity>
             </View>
