@@ -39,9 +39,6 @@ export default function PlaceDetails({ navigation }) {
                             <View style={{ flex: 1, justifyContent: "center", paddingLeft: width * 0.02 }}>
                                 <Text style={{ fontSize: width * 0.034, fontWeight: "bold", color: "#BFBFBF" }}>Ski Vacations</Text>
                             </View>
-
-
-
                         </View>
                     </View>
                     <View style={{ flex: 1, justifyContent: 'center' }}>
@@ -91,7 +88,6 @@ export default function PlaceDetails({ navigation }) {
                         </LinearGradient>
                     </TouchableOpacity>
                 </LinearGradient>
-                <View style={{ height: height * 0.03 }}></View>
             </View>
 
         </View>

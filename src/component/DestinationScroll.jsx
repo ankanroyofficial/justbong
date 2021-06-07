@@ -11,16 +11,18 @@ export default function DestinationScroll(props) {
         { "id": "5" }
     ]
     return (
-        <View style={{ height: height * 0.38,  marginTop: height * 0.02,backgroundColor:'white' }}>
+        <View style={{ height: height * 0.38, marginTop: height * 0.02, backgroundColor: 'white' }}>
             <View style={{ height: height * 0.05, justifyContent: "space-between", marginHorizontal: width * 0.055, flexDirection: 'row', alignItems: "center" }}>
                 <Text style={{ fontSize: width * 0.048, fontWeight: 'bold' }}>Destination</Text>
-                <Text style={{ fontSize: width * 0.039, fontWeight: 'bold' }}>Show All</Text>
+                <TouchableOpacity onPress={() => { props.navigation.navigate("PlaceList") }}>
+                    <Text style={{ fontSize: width * 0.039, fontWeight: 'bold' }}>Show All</Text>
+                </TouchableOpacity>
             </View>
             <View style={{ flex: 1, flexDirection: 'row' }}>
                 <ScrollView horizontal showsHorizontalScrollIndicator={false}>
                     {data.map((item, index) => (
                         <View key={index} style={{ height: "100%", width: width * 0.35, justifyContent: 'space-evenly', alignItems: 'center', marginLeft: width * 0.03, marginRight: (index % (data.length) - (data.length - 1) == 0) ? width * 0.03 : 0 }}>
-                            <TouchableOpacity activeOpacity={0.8} onPress={()=>{props.navigation.navigate("PlaceDetails")}} style={{ height: height * 0.25, backgroundColor: '#e6e6e6', width: width * 0.35, borderRadius: 10 }}>
+                            <TouchableOpacity activeOpacity={0.8} onPress={() => { props.navigation.navigate("PlaceDetails") }} style={{ height: height * 0.25, backgroundColor: '#e6e6e6', width: width * 0.35, borderRadius: 10 }}>
                             </TouchableOpacity>
                             <Text style={{ fontSize: width * 0.035, fontWeight: 'bold' }}>Ski Villa</Text>
                         </View>

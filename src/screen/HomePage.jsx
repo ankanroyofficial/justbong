@@ -28,7 +28,7 @@ export default function HomePage({ navigation }) {
 
                     <TypeOfBooking />
                     <DestinationScroll navigation={navigation} />
-                    <View style={{ height: height * 0.3 }}>
+                    <View style={{ height: width * 0.65 }}>
                         <Text style={{ fontSize: width * 0.1, paddingTop: height * 0.02, fontWeight: 'bold', color: '#0189d1', textAlign: 'center' }}>Let's Go Travel</Text>
                     </View>
                 </View>
