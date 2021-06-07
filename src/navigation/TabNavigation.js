@@ -36,28 +36,28 @@ export default function TabNavigation() {
             <Tab.Screen name="HomePage" component={HomePage} options={{
                 tabBarIcon: ({ focused }) => (
                     <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-                        <Entypo name="globe"size={ focused?width*0.075:width*0.062}  color= { focused?"#0189d1": "gray" }/>
+                        <Entypo name="globe" size={focused ? width * 0.075 : width * 0.062} color={focused ? "#0189d1" : "gray"} />
                     </View>
                 )
             }} />
             <Tab.Screen name="SearchPage" component={SearchPage} options={{
                 tabBarIcon: ({ focused }) => (
                     <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesome5 name="search" size={ focused?width*0.075:width*0.062}  color= { focused?"#0189d1": "gray" } />
+                        <FontAwesome5 name="search" size={focused ? width * 0.075 : width * 0.062} color={focused ? "#0189d1" : "gray"} />
                     </View>
                 )
             }} />
             <Tab.Screen name="FavaritePlace" component={FavaritePlace} options={{
                 tabBarIcon: ({ focused }) => (
                     <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesome name="bookmark" size={ focused?width*0.075:width*0.062}  color= { focused?"#0189d1": "gray" } />
+                        <FontAwesome name="bookmark" size={focused ? width * 0.075 : width * 0.062} color={focused ? "#0189d1" : "gray"} />
                     </View>
                 )
             }} />
             <Tab.Screen name="Profile" component={Profile} options={{
                 tabBarIcon: ({ focused }) => (
                     <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-                        <MaterialCommunityIcons name="account" size={ focused?width*0.078:width*0.062} color= { focused?"#0189d1": "gray" }/>
+                        <MaterialCommunityIcons name="account" size={focused ? width * 0.078 : width * 0.062} color={focused ? "#0189d1" : "gray"} />
                     </View>
                 )
             }} />

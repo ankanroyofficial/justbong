@@ -10,15 +10,19 @@ import DestinationScroll from '../component/DestinationScroll';
 export default function HomePage({ navigation }) {
     return (
         <View style={{ flex: 1, backgroundColor: 'white', paddingTop: StatusBar.currentHeight }}>
-            <View style={{ flex: 1,position:'relative'}}>
-                <View style={{ height:height*0.62 }}></View>
-                <View style={{ height: height * 0.3}}>
-                    <Image source={require("../assets/image/test.png")} style={{ height: "100%", width: "100%", resizeMode:"contain"}} />
+
+
+
+            <View style={{ flex: 1, }}>
+                <View style={{ flex: 1 }}></View>
+                <View style={{ height: 200 }}>
+                    <Image source={require("../assets/image/test.png")} style={{ height: "100%", width: "100%", resizeMode: "contain" }} />
                 </View>
-                <View style={{ height: height * 0.08 }}></View>
+                <View style={{ height: height * 0.11 }}></View>
             </View>
-            <ScrollView  >
-                <View style={{ flex:1,}}>
+            <View style={{ height: height, position: 'absolute' }}>
+                <ScrollView style={{ flex: 1 }}>
+
                     <View style={{ height: height * 0.04, justifyContent: "center", alignItems: "flex-end", marginHorizontal: width * 0.055 }}>
                         <Entypo name="dots-three-vertical" size={width * 0.05} color="black" />
                     </View>
@@ -28,15 +32,15 @@ export default function HomePage({ navigation }) {
 
                     <TypeOfBooking />
                     <DestinationScroll navigation={navigation} />
-                    <View style={{ height: width * 0.65 }}>
-                        <Text style={{ fontSize: width * 0.1, paddingTop: height * 0.02, fontWeight: 'bold', color: '#0189d1', textAlign: 'center' }}>Let's Go Travel</Text>
+                    <View style={{ height: 200 }}>
+                        <Text style={{ fontSize: width * 0.1, paddingTop: 57, fontWeight: 'bold', color: '#0189d1', textAlign: 'center' }}>Let's Go Travel</Text>
                     </View>
-                </View>
-            </ScrollView>
+                    <View style={{ height: height * 0.11 }}></View>
+                </ScrollView>
+            </View>
         </View>
     )
 }
 
 
-{/* <Button onPress={()=>{navigation.navigate("PlaceDetails")}} title="Next" /> */ }
 
