@@ -26,7 +26,7 @@ export default function OnBoardingPage({ navigation }) {
             </View>
             <View style={{ flex: 0.8 }}>
                 <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                    <Text style={{ fontWeight: 'bold', fontSize: width * 0.055 }}>Digital Ticket</Text>
+                    <Text style={{ fontWeight: 'bold', fontSize: width * 0.055 }}>Welcome to Mecheda</Text>
                 </View>
                 <View style={{ flex: 2, marginHorizontal: width * 0.05 }}>
                     <Text style={{ fontSize: width * 0.04, textAlign: "center" }}>Easy solution to buy tickets for your traval, Business trips,transportation,{"\n"}lodging and culinary</Text>

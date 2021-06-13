@@ -2,13 +2,14 @@ import React from 'react';
 import { Dimensions, Text, View, StyleSheet, Image } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomePage from '../screen/HomePage';
-import SearchPage from '../screen/SearchPage';
-import Profile from '../screen/Profile';
-import FavaritePlace from '../screen/FavaritePlace';
-import { FontAwesome } from '@expo/vector-icons';
-import { FontAwesome5 } from '@expo/vector-icons';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { Entypo } from '@expo/vector-icons';
+import Notification from '../screen/Notification';
+import News from '../screen/News';
+import Shop from '../screen/Shop';
+import { Entypo } from '@expo/vector-icons'; 
+import { Ionicons } from '@expo/vector-icons'; 
+import { scale } from '../constants/Scale';
+
+
 
 
 
@@ -36,28 +37,34 @@ export default function TabNavigation() {
             <Tab.Screen name="HomePage" component={HomePage} options={{
                 tabBarIcon: ({ focused }) => (
                     <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-                        <Entypo name="globe" size={focused ? width * 0.075 : width * 0.062} color={focused ? "#0189d1" : "gray"} />
+                        <Entypo name="globe" size={focused ? width * 0.080 : width * 0.062} color={focused ? "blue" : "black"} />
                     </View>
                 )
             }} />
-            <Tab.Screen name="SearchPage" component={SearchPage} options={{
+            <Tab.Screen name="SearchPage" component={Notification} options={{
                 tabBarIcon: ({ focused }) => (
                     <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesome5 name="search" size={focused ? width * 0.075 : width * 0.062} color={focused ? "#0189d1" : "gray"} />
+                       <Ionicons name="notifications-outline" size={focused ? width * 0.080 : width * 0.062} color={focused ? "blue" : "black"} />
+                       <View style={{position:'absolute',width:scale(10),height:scale(10),backgroundColor:"red",borderRadius:scale(5),right:0,top:0}}>
+
+                       </View>
+                        
                     </View>
                 )
             }} />
-            <Tab.Screen name="FavaritePlace" component={FavaritePlace} options={{
+            <Tab.Screen name="Shop" component={Shop} options={{
                 tabBarIcon: ({ focused }) => (
                     <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesome name="bookmark" size={focused ? width * 0.075 : width * 0.062} color={focused ? "#0189d1" : "gray"} />
+                       
+                        <Entypo name="shop" size={focused ? width * 0.080 : width * 0.062} color={focused ? "blue" : "black"} />
                     </View>
                 )
             }} />
-            <Tab.Screen name="Profile" component={Profile} options={{
+            <Tab.Screen name="News" component={News} options={{
                 tabBarIcon: ({ focused }) => (
                     <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-                        <MaterialCommunityIcons name="account" size={focused ? width * 0.078 : width * 0.062} color={focused ? "#0189d1" : "gray"} />
+                        
+                        <Entypo name="news" size={focused ? width * 0.080 : width * 0.062} color={focused ? "blue" : "black"} />
                     </View>
                 )
             }} />
