@@ -22,13 +22,10 @@ export default function TabNavigation() {
         <Tab.Navigator tabBarOptions={{
             showLabel: false,
             style: {
-                position: "absolute",
-                bottom: height * 0.025,
-                left: width * 0.055,
-                right: width * 0.055,
+               
                 elevation: 0,
-                backgroundColor: "white",
-                borderRadius: 15,
+                backgroundColor: "#3d3d5c",
+               
                 height: height * 0.085,
                 ...style.shadow
             }
@@ -37,17 +34,19 @@ export default function TabNavigation() {
             <Tab.Screen name="HomePage" component={HomePage} options={{
                 tabBarIcon: ({ focused }) => (
                     <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-                        <Entypo name="globe" size={focused ? width * 0.080 : width * 0.062} color={focused ? "blue" : "black"} />
+                        <Entypo name="globe" size={focused ? width * 0.080 : width * 0.062} color={focused ? "#fa796a" : "white"} />
+                        <Text style={{fontSize:focused ?scale(40):scale(30),color:focused ?"#fa796a":"white"}}>Home</Text>
                     </View>
                 )
             }} />
             <Tab.Screen name="SearchPage" component={Notification} options={{
                 tabBarIcon: ({ focused }) => (
                     <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-                       <Ionicons name="notifications-outline" size={focused ? width * 0.080 : width * 0.062} color={focused ? "blue" : "black"} />
-                       <View style={{position:'absolute',width:scale(10),height:scale(10),backgroundColor:"red",borderRadius:scale(5),right:0,top:0}}>
+                       <Ionicons name="notifications-outline" size={focused ? width * 0.080 : width * 0.062} color={focused ?"#fa796a":"white"} />
+                       <Text style={{fontSize:focused ?scale(40):scale(30),color:focused ?"#fa796a":"white"}}>Notification</Text>
+                       {/* <View style={{position:'absolute',width:scale(10),height:scale(10),backgroundColor:"red",borderRadius:scale(5),right:0,top:0}}>
 
-                       </View>
+                       </View> */}
                         
                     </View>
                 )
@@ -56,7 +55,8 @@ export default function TabNavigation() {
                 tabBarIcon: ({ focused }) => (
                     <View style={{ justifyContent: 'center', alignItems: 'center' }}>
                        
-                        <Entypo name="shop" size={focused ? width * 0.080 : width * 0.062} color={focused ? "blue" : "black"} />
+                        <Entypo name="shop" size={focused ? width * 0.080 : width * 0.062} color={focused ?"#fa796a":"white"} />
+                        <Text style={{fontSize:focused ?scale(40):scale(30),color:focused ?"#fa796a":"white"}}>Shop</Text>
                     </View>
                 )
             }} />
@@ -64,7 +64,8 @@ export default function TabNavigation() {
                 tabBarIcon: ({ focused }) => (
                     <View style={{ justifyContent: 'center', alignItems: 'center' }}>
                         
-                        <Entypo name="news" size={focused ? width * 0.080 : width * 0.062} color={focused ? "blue" : "black"} />
+                        <Entypo name="news" size={focused ? width * 0.080 : width * 0.062} color={focused ?"#fa796a":"white"} />
+                        <Text style={{fontSize:focused ?scale(40):scale(30),color:focused ?"#fa796a":"white"}}>News</Text>
                     </View>
                 )
             }} />

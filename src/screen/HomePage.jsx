@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, Button, StatusBar, Image, ScrollView } from "react-native";
+import { View, Text, Button, StatusBar, Image, ScrollView,Modal,Alert,Pressable } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
 import { height, width } from "../constants/Constant";
@@ -7,14 +7,17 @@ import TypeOfBooking from "../component/TypeOfBooking";
 import DestinationScroll from "../component/DestinationScroll";
 import Carousel from "react-native-carousel";
 import { scale } from "../constants/Scale";
-import { Ionicons } from "@expo/vector-icons";
 import TimeTable from '../component/TimeTable'
 import CovidTiker from "../component/CovidTiker";
+import Header from '../component/Header'
 
 import firebase from "firebase";
 
 export default function HomePage({ navigation }) {
   const [banner, setBanner] = useState([]);
+  const [loading,setLoading]=useState(false)
+  const [modalVisible, setModalVisible] = useState(false);
+
 
   const getData = () => {
     firebase
@@ -44,36 +47,43 @@ export default function HomePage({ navigation }) {
         flex: 1,
         backgroundColor: "white",
         // paddingTop: StatusBar.currentHeight,
-        paddingHorizontal:scale(10),
-        paddingVertical:scale(20)
+       
+       
       }}
     >
-      <StatusBar />
-      <View style={{ height: height }}>
-        <ScrollView style={{ flex: 1 }}>
-          <View
-            style={{
-              flexDirection: "row",
-              height: height * 0.04,
-              justifyContent: "space-between",
-              alignItems: "center",
-              marginHorizontal: width * 0.055,
-            }}
-          >
-            <View style={{}}>
-              <Text style={{ fontSize: 20, color: "blue" }}>Just Bong </Text>
-              <View style={{ alignItems: "flex-end" }}>
-                <Text style={{ fontSize: 10, color: "#db82fb" }}>মেছেদা</Text>
-              </View>
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          Alert.alert("Modal has been closed.");
+          setModalVisible(!modalVisible);
+        }}
+      >
+        <View style={{flex:1,alignItems:'center',justifyContent:'center'}} >
+          <View style={{height:scale(500),width:scale(1000),backgroundColor:"white",borderRadius:scale(20),elevation:scale(10)}}>
+            <Text>Hello World!</Text>
+            <Pressable
+              
+              onPress={() => setModalVisible(!modalVisible)}
+            >
+              <Text>Hide Modal</Text>
+            </Pressable>
+            <View style={{position:'absolute',top:0,right:0,width:scale(100),height:scale(100),backgroundColor:'red',alignItems:'center',justifyContent:'center'}}>
+              <Text>X</Text>
             </View>
-            <Entypo
-              name="dots-three-vertical"
-              size={width * 0.05}
-              color="black"
-            />
           </View>
+         
+        </View>
+      </Modal>
+      <StatusBar backgroundColor="#29293d" />
+      <Header title={'Just Bong'} subTitle={'মেছেদা'} navigation={navigation} />
+      <View style={{ height: height }}>
+        <ScrollView showsVerticalScrollIndicator={false} style={{ flex: 1 }}>
+         
+          
 
-          <View style={{ height: "15%", width: "100%", padding: 10 }}>
+          <View style={{ height:scale(450), width: "100%", padding: 10 }}>
             <Carousel
               hideIndicators={true}
               animate={true}
@@ -117,7 +127,6 @@ export default function HomePage({ navigation }) {
           
           <View style={{ width: "100%", height: scale(400) }}></View>
 
-          <View style={{ height: height * 0.11 }}></View>
         </ScrollView>
       </View>
     </View>

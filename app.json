@@ -4,11 +4,15 @@
     "slug": "justbong",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./src/assets/icon.png",
+    "icon": "./src/assets/jb.png",
     "splash": {
-      "image": "./src/assets/splash.png",
+      "image": "./src/assets/welcome.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
+    }, "notification": {
+      "color": "#D41422",
+      "androidMode": "default",
+      "androidCollapsedTitle": "n/a"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -21,9 +25,13 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./src/assets/adaptive-icon.png",
+        "foregroundImage": "./src/assets/jb.png",
         "backgroundColor": "#FFFFFF"
-      }
+
+      },"config": {
+        "googleMobileAdsAppId": "ca-app-pub-3104108793138615~4162551533"
+      },"package": "com.justbong.justbong",
+      "versionCode": 1
     },
     "web": {
       "favicon": "./src/assets/favicon.png"

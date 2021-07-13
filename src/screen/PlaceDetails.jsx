@@ -6,255 +6,82 @@ import {
   Image,
   TouchableOpacity,
   ScrollView,
+  Pressable,
+  Linking
 } from "react-native";
-import { height, width } from "../constants/Constant";
-import { Feather } from "@expo/vector-icons";
-import { Entypo } from "@expo/vector-icons";
-import { LinearGradient } from "expo-linear-gradient";
-import { Rating, AirbnbRating } from "react-native-ratings";
+import ChildHeader from '../component/ChildHeader'
+import { height } from "../constants/Constant";
 import { scale } from "../constants/Scale";
+import { EvilIcons } from '@expo/vector-icons';
+import { Entypo } from '@expo/vector-icons'; 
+import { FontAwesome } from '@expo/vector-icons'; 
+
 
 export default function PlaceDetails({ navigation, route }) {
   console.log(route.params);
 
-  const ratingCompleted = (rating) => {
-    console.log("Rating is: " + rating);
-  };
+
 
   const { category, description, image, organization, phone, place, title } =
     route.params;
   return (
     <View style={{ flex: 1, backgroundColor: "white" }}>
-      <View style={{ flex: 1 }}>
-        <View style={{ height: height * 0.4 }}>
-          <Image
-            source={require("../assets/image/k.png")}
-            style={{ height: "100%", width: "100%", resizeMode: "cover" }}
-          />
+
+      <ChildHeader title={category} navigation={navigation} />
+
+      <View style={{}}>
+
+      </View>
+      <View style={{ margin: scale(20), height: scale(400), alignItems: 'center', justifyContent: 'center' }}>
+        {
+          image ? <Image source={{ uri: image }} blurRadius={scale(5)} style={{ width: "100%", height: "100%", resizeMode: "cover" }} /> : <>
+            <EvilIcons name="image" size={scale(400)} color="black" />
+            <Text>No image to show !</Text>
+
+          </>
+        }
+
+      </View>
+      <View style={{alignItems:'center',justifyContent:'center',marginTop:scale(-280)}}>
+      <Image source={{ uri: image }} style={{ width: scale(400), height: scale(400), resizeMode: "cover",borderRadius:scale(10) }} />
+      </View>
+      <View style={{ marginLeft: scale(25),marginTop:scale(20) }}>
+        <View style={{backgroundColor:'#AC97F5',padding:scale(10),borderTopLeftRadius:scale(20)}}>
+         <Text style={{ fontSize: scale(50),color:'white' }}>{title}</Text>
+         <Text style={{ fontSize: scale(40),color:'white' }}>({category})</Text>
         </View>
-        <View style={{ flex: 1 }}></View>
+       
+        
+        <Text style={{ fontSize: scale(45),margin:scale(5) }}><Entypo name="user" size={scale(50)} color="orange" /> Owner : {organization}</Text>
+        <Text style={{ fontSize: scale(45),margin:scale(5) }}><FontAwesome name="phone" size={scale(50)} color="green" /> Contact : {phone}</Text>
+        <Text style={{ fontSize: scale(45),margin:scale(5) }}><Entypo name="location-pin" size={scale(50)} color="red" />Service Area : All over Mecheda</Text>
+      </View>
+      <View style={{ marginLeft: scale(25), flex: 1 }}>
+        <ScrollView>
+        <View style={{backgroundColor:'#AC97F5',padding:scale(10),borderTopLeftRadius:scale(20)}}>
+          <Text style={{ fontSize: scale(50),color:'white' }}>About</Text>
+          </View>
+          <View style={{padding:scale(10)}}>
+          <Text style={{ fontSize: scale(45) }} numberOfLines={8}>{description}</Text>
+          </View>
+          
+        </ScrollView>
+
+
+      </View>
+      <View style={{ alignItems: 'center', justifyContent: 'center', marginBottom: scale(20) }}>
+        <Pressable onPress={() => { Linking.openURL(`tel:${phone}`) }}>
+          <View style={{ height: scale(200), width: scale(1000), borderRadius: scale(20), backgroundColor: '#3d3d5c', alignItems: 'center', justifyContent: 'center' }}>
+            <Text style={{ fontSize: scale(80), color: 'white' }}>Call Now  <FontAwesome name="phone" size={scale(100)} color="green" /></Text>
+          </View>
+        </Pressable>
+
+
       </View>
 
-      <View
-        style={{
-          position: "absolute",
-          paddingTop: StatusBar.currentHeight,
-          height: height,
-        }}
-      >
-        <View style={{ height: height * 0.25, width: width }}>
-          <View
-            style={{
-              height: height * 0.04,
-              justifyContent: "space-between",
-              alignItems: "flex-end",
-              flexDirection: "row",
-              marginHorizontal: width * 0.055,
-            }}
-          >
-            <TouchableOpacity
-              onPress={() => {
-                navigation.goBack();
-              }}
-            >
-              <Feather name="chevron-left" size={width * 0.07} color="black" />
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <Entypo
-                name="dots-three-vertical"
-                size={width * 0.05}
-                color="black"
-              />
-            </TouchableOpacity>
-          </View>
-        </View>
-        <View
-          style={{
-            height: height * 0.2,
-            backgroundColor: "white",
-            marginHorizontal: width * 0.055,
-            borderRadius: 10,
-            padding: height * 0.015,
-            elevation: 2,
-          }}
-        >
-          <View style={{ flex: 1, flexDirection: "row" }}>
-            <View
-              style={{
-                flex: 1,
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <View
-                style={{
-                  height: height * 0.088,
-                  width: height * 0.088,
-                  borderRadius: 10,
-                  overflow: "hidden",
-                  backgroundColor: "white",
-                }}
-              >
-                <Image
-                  source={{ uri: image }}
-                  style={{ height: "100%", width: "100%", resizeMode: "cover" }}
-                />
-              </View>
-            </View>
-            <View style={{ flex: 3 }}>
-              <View
-                style={{
-                  flex: 1,
-                  justifyContent: "space-between",
-                  paddingLeft: width * 0.02,
-                }}
-              >
-                <Text
-                  style={{
-                    fontSize: width * 0.042,
-                    fontWeight: "bold",
-                    color: "#46aeff",
-                  }}
-                >
-                  {title}
-                </Text>
-                <Text
-                  style={{
-                    fontSize: width * 0.031,
-                    fontWeight: "bold",
-                    color: "#46aeff",
-                    opacity: 0.8,
-                  }}
-                >
-                  {place}
-                </Text>
-              </View>
-              {/* <View style={{ flex: 1, justifyContent: "center", paddingLeft: width * 0.02 }}>
-                                <Text style={{ fontSize: width * 0.034, fontWeight: "bold", color: "#BFBFBF" }}>xxx</Text>
-                            </View> */}
-            </View>
-          </View>
-          <View style={{ flex: 1, justifyContent: "center" }}>
-            <Text
-              numberOfLines={3}
-              style={{
-                fontSize: width * 0.0322,
-                color: "#808080",
-                fontWeight: "bold",
-                opacity: 0.8,
-              }}
-            >
-              {description}
-            </Text>
-          </View>
-        </View>
-        <View
-          style={{
-            height: height * 0.09,
-            marginTop: height * 0.02,
-            marginHorizontal: width * 0.055,
-            
-          }}
-        >
-          {/* <View style={{ flex: 1, justifyContent: "space-evenly", alignItems: "center" }}>
-                        <View style={{ height: height * 0.05, width: height * 0.05, backgroundColor: 'white' }}>
-                            <Image source={require("../assets/icons/house.png")} style={{ height: "100%", width: "100%", resizeMode: "contain" }} />
-                        </View>
-                        <Text style={{ fontSize: width * 0.035, fontWeight: 'bold', color: "#46aeff" }}>Hotel</Text>
-                    </View>
-                    <View style={{ flex: 1, justifyContent: "space-evenly", alignItems: "center" }}>
-                        <View style={{ height: height * 0.05, width: height * 0.05, backgroundColor: 'white' }}>
-                            <Image source={require("../assets/icons/parking.png")} style={{ height: "100%", width: "100%", resizeMode: "contain" }} />
-                        </View>
-                        <Text style={{ fontSize: width * 0.035, fontWeight: 'bold', color: "#46aeff" }}>Parking</Text>
-                    </View>
-                    <View style={{ flex: 1, justifyContent: "space-evenly", alignItems: "center" }}>
-                        <View style={{ height: height * 0.05, width: height * 0.05, backgroundColor: 'white' }}>
-                            <Image source={require("../assets/icons/wind.png")} style={{ height: "100%", width: "100%", resizeMode: "contain" }} />
-                        </View>
-                        <Text style={{ fontSize: width * 0.035, fontWeight: 'bold', color: "#46aeff" }}>4°C</Text>
-                    </View> */}
-                <Text>Reating Section</Text>
-        </View>
-        <View
-          style={{
-            flex: 1,
-            marginHorizontal: width * 0.055,
-            marginVertical: width * 0.02,
-          }}
-        >
-          <View style={{ height: "18%", justifyContent: "center" }}>
-            <Text
-              style={{
-                fontSize: width * 0.047,
-                fontWeight: "bold",
-                letterSpacing: 1,
-              }}
-            >
-              About
-            </Text>
-          </View>
-          <View style={{ flex: 1 }}>
-            <ScrollView>
-              <Text style={{ fontSize: width * 0.04, textAlign: "auto" }}>
-                {description}
-              </Text>
-            </ScrollView>
-          </View>
-        </View>
-        <LinearGradient
-          colors={["#eef0fd", "#bdccfd"]}
-          start={{ x: 0, y: 0 }}
-          end={{ x: 1, y: 1 }}
-          style={{
-            height: height * 0.09,
-            bottom: 0,
-            marginHorizontal: width * 0.055,
-            borderRadius: 10,
-            flexDirection: "row",
-            justifyContent: "space-between",
-            alignItems: "center",
-            paddingHorizontal: width * 0.02,
-            marginBottom:scale(20)
-          }}
-        >
-          <Text
-            style={{
-              fontSize: width * 0.06,
-              fontWeight: "bold",
-              opacity: 0.9,
-              color: "#5682fb",
-            }}
-          >
-            +91 {phone}
-          </Text>
-          <TouchableOpacity activeOpacity={0.8}>
-            <LinearGradient
-              colors={["#44b1fa", "#5c7dfb"]}
-              start={{ x: 0, y: 0 }}
-              end={{ x: 1, y: 1 }}
-              style={{
-                height: height * 0.07,
-                width: width * 0.3,
-                borderRadius: 10,
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <Text
-                style={{
-                  color: "white",
-                  fontSize: width * 0.047,
-                  fontWeight: "bold",
-                  letterSpacing: 1,
-                }}
-              >
-                Call Now
-              </Text>
-            </LinearGradient>
-          </TouchableOpacity>
-        </LinearGradient>
-      </View>
+
+
+
     </View>
   );
 }
